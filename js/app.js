@@ -1,4 +1,4 @@
-// Draw the enemy on the screen, required method for game
+// Draw the enemy/player objects to screen
 
 Object.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -16,32 +16,30 @@ Object.prototype.reset = function() {
 // Enemies our player must avoid
 var Enemy = function(x, y) {
 
-    // The image/sprite for our enemies, this uses
-
     this.sprite = 'images/enemy-bug.png';
+    //coordinates
     this.x = x;
     this.y = y;
-    this.speed = Math.floor(Math.random() * 200 + 100);
+
+    //movement speed
+    this.speed = Math.floor((Math.random() * 200) + 100);
 }
 
 
-// Update the enemy's position, required method for game
+// Update the enemy's position
 // Parameter: dt, a time delta between ticks
 
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+
     if (this.x <= 550) {
       this.x =+ this.speed * dt;
-    }
-    else {
-      this.x = -2;
+    } else {
+        this.x = -2;
     }
 
-    //If player comes within 25px of an enemy, reset game
-    if (player.x >= this.x - 25 && player.x <= this.x + 25) {
-      if (player.y >= this.y - 25 && player.y <= this.y + 25) {
+    //If player comes within 30px of an enemy, reset game
+    if (player.x >= this.x - 30 && player.x <= this.x + 30) {
+      if (player.y >= this.y - 30 && player.y <= this.y + 30) {
         this.reset();
       }
     }
