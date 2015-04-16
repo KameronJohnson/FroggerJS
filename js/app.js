@@ -17,6 +17,7 @@ Object.prototype.reset = function() {
 var Enemy = function(x, y) {
 
     this.sprite = 'images/enemy-bug.png';
+
     //coordinates
     this.x = x;
     this.y = y;
@@ -32,14 +33,14 @@ var Enemy = function(x, y) {
 Enemy.prototype.update = function(dt) {
 
     if (this.x <= 550) {
-      this.x =+ this.speed * dt;
+      this.x += this.speed * dt;
     } else {
         this.x = -2;
     }
 
     //If player comes within 30px of an enemy, reset game
-    if (player.x >= this.x - 30 && player.x <= this.x + 30) {
-      if (player.y >= this.y - 30 && player.y <= this.y + 30) {
+    if (player.x >= this.x - 35 && player.x <= this.x + 35) {
+      if (player.y >= this.y - 35 && player.y <= this.y + 35) {
         this.reset();
       }
     }

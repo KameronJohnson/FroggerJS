@@ -31,7 +31,7 @@ var Engine = (function(global) {
         var playerX = this.x;
         var playerY = this.y;
 
-        //If the player has the same Y value and is within 50px of the Enemy's x-coordinate, reset the game
+        //If the player has the same Y value and is within 55px of the Enemy's x-coordinate, reset the game
         allEnemies.forEach(function(enemy){
             var enemyX = enemy.x;
             var enemyY = enemy.y;
