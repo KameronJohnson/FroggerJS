@@ -77,6 +77,16 @@ Player.prototype.handleInput = function(e) {
   this.ctlKey = e;
 }
 
+//Instantiation of player and enemy objects
+
+var allEnemies = [];
+(function setEnemies() {
+  allEnemies.push(new Enemy(-2, 60));
+  allEnemies.push(new Enemy(-2, 100));
+  allEnemies.push(new Enemy(-2, 150));
+  allEnemies.push(new Enemy(-2, 220));
+}());
+
 var player = new Player();
 
 
