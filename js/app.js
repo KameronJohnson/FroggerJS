@@ -1,6 +1,6 @@
 // Draw the enemy on the screen, required method for game
 
-Enemy.prototype.render = function() {
+Object.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
@@ -21,7 +21,7 @@ var Enemy = function(x, y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = Math.floor(Math.random() * 200) + 100);
+    this.speed = Math.floor(Math.random() * 200 + 100);
 }
 
 
@@ -45,6 +45,15 @@ Enemy.prototype.update = function(dt) {
         this.reset();
       }
     }
+}
+
+//Player Object
+
+var Player = function() {
+  this.sprite = 'images/char-boy.png';
+  this.x = 200;
+  this.y = 400;
+
 }
 
 Player.prototype.update = function() {
